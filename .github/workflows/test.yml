@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        arch: [ amd64, arm32v5, arm32v7, arm64v8, i386, mips64le, ppc64le, riscv64, s390x ]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup multiarch support
+        run: ./setup-multiarch.sh
+      - name: Run architecture test ${{ matrix.arch }}
+        run: ./arch-test.sh
+        env:
+          TEST_ARCH: ${{ matrix.arch }}
