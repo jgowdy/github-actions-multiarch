@@ -14,4 +14,5 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
 
 export CARGO_NET_GIT_FETCH_WITH_CLI=true
 
-time cargo update --offline
+time cargo update 
+#--offline
