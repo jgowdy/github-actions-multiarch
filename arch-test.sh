@@ -10,4 +10,4 @@ echo "Register qemu support with docker"
 docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
 echo "Testing ${TEST_ARCH} emulation"
-docker run --rm "${TEST_ARCH}/debian:sid" /bin/sh -c "echo Hello from architecture \$(uname -m)"
+docker run --rm -v $(pwd):/build "${TEST_ARCH}/debian:sid" /build/runs-on-emulated.sh
