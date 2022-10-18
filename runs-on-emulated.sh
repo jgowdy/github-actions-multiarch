@@ -1,8 +1,7 @@
 #!/bin/sh
 echo Hello from $(uname -m)!
 
-git config --global --add safe.directory /root/.cargo/git
-git config --global --add safe.directory /root/.cargo/registry
+git config --global --add safe.directory '*'
 
 apt-get update
 apt-get install -y git build-essential gcc make curl
