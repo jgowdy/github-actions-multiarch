@@ -14,6 +14,7 @@ git clone https://github.com/godaddy/cobhan-rust.git
 cd cobhan-rust/cobhan || exit
 
 echo "Cargo update on host"
+export CARGO_NET_GIT_FETCH_WITH_CLI=true
 time cargo update
 cd ../..
 
