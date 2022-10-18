@@ -19,4 +19,4 @@ ls -la "${HOME}/.cargo/registry"
 cd ../..
 
 echo "Testing ${TEST_ARCH} emulation"
-docker run --rm -v $(pwd):/build -v "${HOME}/.cargo/git:/root/.cargo/git" -v "${HOME}/.cargo/registry:/root/.cargo/registry" "${TEST_ARCH}/debian:sid" /build/runs-on-emulated.sh
+docker run --rm -v $(pwd):/build -v $(pwd)/cobhan-rust:/cobhan-rust -v "${HOME}/.cargo/git:/root/.cargo/git" -v "${HOME}/.cargo/registry:/root/.cargo/registry" "${TEST_ARCH}/debian:sid" /build/runs-on-emulated.sh
