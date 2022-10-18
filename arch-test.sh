@@ -14,10 +14,8 @@ git clone https://github.com/godaddy/cobhan-rust.git
 cd cobhan-rust/cobhan || exit
 
 echo "Cargo update on host"
-export CARGO_NET_GIT_FETCH_WITH_CLI=true
 time cargo update
 cd ../..
 
 echo "Testing ${TEST_ARCH} emulation"
-#-v "${HOME}/.cargo/git:/root/.cargo/git" -v "${HOME}/.cargo/registry:/root/.cargo/registry"
-docker run --rm -v $(pwd):/build -v $(pwd)/cobhan-rust:/cobhan-rust "${TEST_ARCH}/debian:sid" /build/runs-on-emulated.sh
+docker run --rm -v $(pwd):/build -v $(pwd)/cobhan-rust:/cobhan-rust -v "${HOME}/.cargo/git:/root/.cargo/git" -v "${HOME}/.cargo/registry:/root/.cargo/registry" "${TEST_ARCH}/debian:sid" /build/runs-on-emulated.sh
