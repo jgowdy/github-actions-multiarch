@@ -11,4 +11,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
 
 . "$HOME/.cargo/env"
 
+export CARGO_HTTP_DEBUG=true
+export CARGO_LOG=cargo=debug
+export RUST_LOG=cargo=debug
+
 cargo update
