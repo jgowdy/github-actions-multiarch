@@ -12,10 +12,9 @@ docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 echo "Clone cobhan-rust on host"
 git clone https://github.com/godaddy/cobhan-rust.git
 cd cobhan-rust/cobhan || exit
+
 echo "Cargo update on host"
-cargo update
-ls -la "${HOME}/.cargo/git"
-ls -la "${HOME}/.cargo/registry"
+time cargo update
 cd ../..
 
 echo "Testing ${TEST_ARCH} emulation"
